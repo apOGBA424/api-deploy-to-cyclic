@@ -23,7 +23,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 
 
-// app connection to Cloud Server
+// app connection to Cloud Database
 if (database) {
     app.listen(PORT, ()=>{
         console.log(`app running on  http://localhost:${PORT}`);

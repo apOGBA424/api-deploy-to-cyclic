@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 const app = express();
 const router = express.Router();
 const local_data = require('./mock_data');
-const database = require('./config/db')
+const database = require('./config/db');
+const User = require('./model/users');
+const bcrypt = require('bcrypt');
 
 
 // app-level middlewares
@@ -23,7 +25,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 
 
-// app connection to Cloud Server
+// app connection to Cloud Database
 if (database) {
     app.listen(PORT, ()=>{
         console.log(`app running on  http://localhost:${PORT}`);
@@ -56,11 +58,14 @@ app.get('/signup', (req, res)=>{
     res.render('sign-up');
 });
 app.post('/signup', (req, res)=>{
-    try {
-        
+    try {        
         const {username, email, password} = req.body;
-
+        
         if (username && email && password) {
+            
+            const new_user = User({username, email, password});
+            new_user.save();
+            
             console.table({username, email, password});
             return res.status(201).json({username, email, password});
         }

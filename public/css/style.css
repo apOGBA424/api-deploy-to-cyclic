@@ -1,0 +1,777 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--font-color);
+}
+
+:root{
+    --font-color: #494141;
+    --warning-color: #FF2424;
+    --info-color: #F5E04A;
+    --success-color: #59B734;
+    --blue-1: #011f4b;
+    --blue-2: #03396c;
+    --blue-3: #005b96;
+    --blue-4: #6497b1;
+    --blue-5: #b3cde0;
+}
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------*/
+/*                      PAGE NAVs                         */ 
+/*--------------------------------------------------------*/
+nav{
+    display: flex;
+    padding: 1em;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0.6px 8px var(--blue-5);
+}
+nav a{
+    text-decoration: none;
+}
+nav div.logo-and-name-wrapper{
+    /* outline: 2px dashed gold; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav div .logo-div{
+    width: 30px;
+    aspect-ratio: 1/1;
+    background-color: var(--blue-3);
+    border-radius: 15px;
+}
+nav h1{
+    font-size: medium;
+    margin-left: 8px;
+}
+button.nav-icon{
+    /* outline: 2px dashed red; */
+    border: none;
+    background-color: transparent;
+    font-size: larger;
+    padding: 8px;
+}
+button.nav-icons .fa-bars{
+    border-color: transparent;
+}
+div.nav-links--wrapper{
+    display: none;
+    position: fixed;
+    z-index: 99;
+    padding: 2rem 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blue-3);
+}
+/* the navigation menu button */
+div.nav-links--wrapper button{
+    /* outline: 2px dotted red; */
+    width: 100%;
+    text-align: right;
+    font-size: 40px;
+    padding-right: 2em;
+    color: white;
+    background-color: transparent;
+    border: 0;
+    /* outline: 0; */
+}
+div.nav-links--wrapper button i{
+    cursor: pointer;
+}
+div.nav-links--wrapper ul{
+    list-style-type: none;
+    text-align: center;
+    padding-top: 4rem;
+    line-height: 3;
+}
+div.nav-links--wrapper ul a{
+    text-decoration: none;
+}
+div.nav-links--wrapper ul a li{
+    /* outline: 2px dotted gold; */
+    display: block;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+button.nav-icon:hover,
+button.nav-icon i:hover,
+div.nav-links--wrapper button.close-button:hover,
+div.nav-links--wrapper ul a:hover,
+div.nav-links--wrapper ul a i:hover{
+    cursor: pointer;
+    color: var(--info-color);
+}
+
+
+
+
+/*--------------------------------------------------------*/
+/*                      SIGN_UP FORM PAGE                 */ 
+/*--------------------------------------------------------*/
+.authForm-wrapper{
+    /* outline: 1px dashed var(--warning-color); */
+    margin: 4vh auto;
+    padding: 1em 16px;
+}
+
+
+.authForm-wrapper h1,
+.authForm-wrapper h2{
+    /* outline: 1px dashed var(--success-color); */
+    text-align: center;
+    line-height: 1.6;
+}
+.authForm-wrapper .social-icons{
+    /* outline: 2px dashed var(--info-color); */
+    margin: 0 auto 1em;
+    padding: 0.4em 0 0.6em 0 ;
+    font-size: x-large;
+    width: 70%;
+    border-radius: 5px;
+    box-shadow: -2px 2px 16px #f8f8f8;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.authForm-wrapper .social-icons a{
+    margin: 0 12px ;
+}
+.authForm-wrapper .social-icons a i{
+    color: var(--blue-2);
+}
+/* this H3 is below the social icons */
+.authForm-wrapper .form-header h3{
+    /* outline: 2px dashed var(--info-color); */
+    margin: 0 auto 1em;
+    padding: 0.4em 0 0.6em 0 ;
+    text-align: center;
+    font-size: 1rem;
+    word-spacing: 2.2px;
+}
+.authForm-wrapper h1{
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+.authForm-wrapper h2{
+    font-size: 1.2rem;
+    color: var(--blue-2);
+    letter-spacing: 1.8px;
+}
+.authForm-wrapper form{
+    display: grid;
+    line-height: 1.6;
+}
+.authForm-wrapper form input{
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+.authForm-wrapper form input[type='submit']{
+    background-color: var(--blue-1);
+    color: whitesmoke;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 12px;
+    margin-top: 8px;
+}
+.authForm-wrapper .sign-in_redirect{
+    /* outline: 2px dashed var(--info-color); */
+    margin: 8px 0 24px 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+.authForm-wrapper .sign-in_redirect a{
+    color: var(--blue-3);
+    text-decoration: none;
+    border-bottom: 1px solid var(--blue-3);
+    padding-bottom: 3px;
+}
+
+
+/**********************************************
+*                   HOME PAGE     *
+*********************************************/
+section#article{
+    /* background-color: crimson; */
+    width: 100vw;
+}
+
+section#article a{
+    text-decoration: none;
+}
+
+/* artice card */
+section#article div.article-card{
+    /* outline: 2px dashed gold; */
+    box-shadow: -2px 5px 12px #999;
+    margin:2px 4px 8px;
+}
+
+
+/* artice image wrapper */
+section#article div.article-card div.article-image-wrapper{
+    /* outline: 2px dashed var(--blue-1); */
+    height: 200px;
+    width: 100%;
+}
+div.article-image-wrapper img{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+section.article-info{
+    /* outline: 2px dashed var(--green-1); */
+    padding: 16px 12px;
+    line-height: 1.6;
+
+
+    /* the code below truncates the 
+    headline to 2 lines */
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow :hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+}
+
+/* article headine */
+section.article-info h2.headline{
+    /* outline: 2px dotted crimson; */
+    font-size: large;
+}
+
+/* article author */
+section.article-info h3.author{
+    /* outline: 2px dashed teal; */
+    font-size: medium;
+    padding: 8px 0;
+    color: var(--blue-2);
+    font-weight: 400;
+}
+
+/* wrapper article views, likes, and published date */
+div.views-likes-date{
+    /* outline: 2px dashed purple; */
+    padding: 0 0 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fafafa;
+}
+/*wrapper for each child in the div */
+div.views-likes-date div{
+    /* outline: 2px dashed black; */
+    /* width: 50px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* article views div*/
+div.views-likes-date div .views{
+    justify-content: space-between;
+}
+/* the Likes icon */
+div.views-likes-date div.likes i{
+    color: #ccc;
+}
+div.views-likes-date div.likes i span{
+    color: var(--font-color);
+}
+/* div.views-likes-date div.likes i span::before{
+    content: " ";
+} */
+div.views-likes-date div p{
+    color: var(--blue-1);
+}
+div.views-likes-date div.date{
+    width: 100px;
+}
+div.views-likes-date div.date p{
+    font-size: 14px;
+    padding: none !important;
+}
+
+/*--------------------------------------------------------*/
+/*                      USERS PAGE                         */ 
+/*--------------------------------------------------------*/
+main#userPage--main{
+    margin: 1em auto 3em;
+    line-height: 1.6;
+}
+section.userPage__content{
+    width: 100%;
+}
+section.userPage__content a{
+    text-decoration: none;
+}
+div.userPage-card{
+    /* outline: 2px dotted red; */
+    width: 100%;
+    margin: 4px 0 6px;
+    box-shadow: -2px 5px 10px #ccc;
+}
+div.users-image-wrapper{
+    /* outline: 2px dashed teal; */
+    background-color: var(--font-color);
+    width: 100%;
+    height: 320px;
+}
+div.users-image-wrapper img{
+    object-fit: cover;
+    object-position: center;
+    width: 100%!important;
+    height: 100%!important;
+}
+/* section inside card for user info */
+section.userPage-info{
+    padding: 16px 16px 24px;
+}
+/* external link icon to view user profile */
+section.userPage-info h2 span i{
+    display: inline-block;
+    color: var(--blue-5);
+    vertical-align: middle;
+    margin-left: .5rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+/* user image views and likes' wrapper */
+div.userPage-div3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* user image views */
+div.user-div4{
+    /* outline: 2px dotted red; */
+    display: flex;
+    width: 150px;
+    padding: 8px;
+    font-size: 0.95;
+    align-items: center;
+    overflow-x: hidden;
+}
+div.user-div4 span{
+    /* outline: 2px solid var(--blue-3); */
+    display: inline-block;
+    margin-left: 2px;
+    letter-spacing: 0.8px;
+}
+.views-letter-only{
+    font-weight: bold;
+}
+/* user image likes count */
+div.user-div5{
+    /* outline: 2px dotted red; */
+    width: 150px;
+    padding: 8px;
+    display: flex;
+    justify-content: flex-end;
+    overflow-x: hidden;
+}
+div.user-div5 button{
+    padding: 8px;
+    font-size: 0.95rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+div.user-div5 button i{
+    word-spacing: 2px;
+    letter-spacing: 1.4px;
+    font-weight: bold;
+    color: #ccc;
+    font-size: 1.2rem;
+}
+.likes-letter-only{
+    font-weight: bold;
+    font-size: 1.1rem;
+    /* color: var(--blue-3); */
+    color: #aaa;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------*/
+/*                   ARTICLE PAGE                         */ 
+/*--------------------------------------------------------*/
+main.article-page{
+    /* background-color: red; */
+    width: 100%;
+    padding: 20px 0;
+    line-height: 1.6;
+}
+
+/* image wrapper */
+main.article-page div.image-wrapper{
+    /* outline: 2px dotted blue; */
+    width: 100%;
+    height: 200px;
+    padding: 8px 0;
+    margin: 0 0 36px;
+}
+main.article-page div.image-wrapper img{
+    object-fit: contain;
+    object-position: center;
+    width: 100%!important;
+    height: 100%!important;
+}
+
+
+/* article body content */
+div.article-body-wrapper section.headline{
+    width: 100%;
+}
+div.article-body-wrapper h2{
+    /* outline: 2px dotted gold; */
+    padding-left: 30px;
+}
+div.article-body-wrapper section.author-and-date{
+    padding: 16px 30px;   
+    font-size: small;
+    letter-spacing: 1.2px;
+    color: var(--blue-3);
+}
+div.article-body-wrapper section.blog{
+    padding: 0 30px;
+}
+section.views-and-likes{
+    /* outline: 2px dotted gold; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+
+}
+
+
+
+/*--------------------------------------------------------*/
+/*                   PROFILE PAGE                         */ 
+/*--------------------------------------------------------*/
+/* arrow to go back to last page  */
+section.backArrow{
+    /* outline: 2px dotted crimson; */
+    margin: 12px 0;
+    padding: 8px 3rem 0;
+}
+section.backArrow a h4{
+    color: var(--blue-3);
+}
+section.backArrow a{
+    color: var(--blue-3);
+    text-decoration: none;
+}
+main.profilePage--main-wrapper{
+    margin: 0 50px;
+    line-height: 1.6;
+}
+/* user avater wrapper */
+main.profilePage--main-wrapper .div-1{
+    background-color: var(--blue-1);
+    margin: 20px auto 40px;
+    width: 200px;
+    aspect-ratio: 2/2;
+    border-radius: 100px;
+}
+main.profilePage--main-wrapper .div-1 img{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    padding-top: 5px;
+}
+main.profilePage--main-wrapper .div-2{
+    /* outline: 2px dotted var(--success-color); */
+    margin: 0 25px;
+}
+/* the user's name */
+/* main.profilePage--main-wrapper .div-2 section.headline{
+    outline: 2px dashed var(--info-color);
+} */
+main.profilePage--main-wrapper .div-2 h2{
+    /* outline: 2px dotted var(--warning-color); */
+    color: var(--blue-2);
+}
+div.div-2 section p span{
+    font-size: large;
+    margin-right: 8px;
+    font-weight: bold;
+}
+div.div-2 section p span:nth-child(2){
+    font-family: monospace;
+    font-weight: 200;
+}
+div.div-2 section a{
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 2rem;
+}
+div.div-2 section a h4{
+    color: var(--blue-4);
+}
+
+footer{
+    margin-top: 5rem;
+}
+
+
+
+
+/*--------------------------------------------------------*/
+/*                   404 PAGE                         */ 
+/*--------------------------------------------------------*/
+main.Page404 div {
+    /* outline: 4px dotted gold; */
+    margin: 4rem auto !important;
+    text-align: center;
+    line-height: 2;
+}
+main.Page404 div h1{
+    /* outline: 1px dotted green; */
+    font-size: xxx-large;
+}
+main.Page404 div div{
+    display: inline-block;
+    border-bottom: 1px solid var(--blue-4);
+}
+main.Page404 div div a{
+    text-decoration: none;
+}
+main.Page404 div div a p{
+    /* outline: 1px dotted red; */
+    color: var(--blue-4);
+}
+main.Page404 div div:hover{
+    cursor: pointer;
+    border-color: var(--blue-3);
+}
+main.Page404 div div a p:hover{
+    cursor: pointer;
+    color: var(--blue-3);
+}
+
+
+
+
+
+/********************************************
+*               MEDIA QUERIES          
+*********************************************/
+
+/* for tablet */
+@media (min-width: 768px){
+    .social-icons{
+        width: 40% !important;
+    }
+    .authForm-wrapper form{
+        width: 60%;
+        margin: 0 auto 16px;
+    }
+
+    /* for the article page */
+    section#article{
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 16px;
+    }
+    section#article div.article-card{
+        width: 31.9%;
+        margin:2px 0px 8px;
+    }
+    .article-info{
+        padding: 16px 0 !important;
+    }
+    section.article-info h2.headline{
+        margin-left: 6px;
+    }
+    div.views-likes-date{
+        font-size: small;
+        width: 100% !important;
+        padding: unset;
+    }
+    div.views-likes-date .views,
+    div.views-likes-date .likes{
+        margin-left: 8px;
+    }
+    div.views-likes-date .date{
+        width: 70px;
+    }
+
+    /*****************************
+    *       article.ejs file     *
+    ***************************/
+    main.article-page div.image-wrapper{
+        margin-bottom: 150px !important;
+    }
+    main.article-page div.image-wrapper img{
+        height: 310px !important;
+    }
+    div.article-body-wrapper h2{
+        padding: 0 175px !important;
+    }
+    div.article-body-wrapper section.author-and-date{
+        padding: 16px 180px !important;
+    }
+    div.article-body-wrapper section.blog{
+        padding: 0 180px !important;
+    }
+    section.views-and-likes{
+        padding: 20px 180px !important;
+    }
+
+    /* PROFILE PAGE  */
+    main.profilePage--main-wrapper .div-1{
+        margin: 60px auto 64px;
+    }
+    main.profilePage--main-wrapper .div-2 h2{
+        margin-left: 32% !important;
+    }
+    main.profilePage--main-wrapper .div-2 section h2,
+    main.profilePage--main-wrapper .div-2 section h3,
+    main.profilePage--main-wrapper .div-2 section p,
+    main.profilePage--main-wrapper .div-2 section a{
+        margin: 0 32% !important;
+    }
+    main.profilePage--main-wrapper .div-2 section a{
+        margin: 30px auto 150px!important;
+    }
+
+
+    /* USERS PAGE */
+    /* section.userPage__content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    div.userPage-card{
+        width: 33%;
+    }
+    .fa-eye, .fa-thumbs-up{
+        display: none !important;
+    } */
+
+    main#userPage--main{
+        /* background-color: red; */
+        width: 100%;
+        margin: 8px auto;
+    }
+    section.userPage__content{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    div.userPage-card{
+        margin: 16px 4px;
+    }
+    .fa-eye{
+        display: none !important;
+    }
+}
+
+
+
+@media (min-width: 992px) {
+    .authForm-wrapper form,
+    .authForm-wrapper .sign-in_redirect{
+        width: 40%;
+        margin: 0 auto 16px;
+    }
+    main#home-page,
+    section#article{
+        overflow-x: hidden;
+    }
+    section#article div.article-card{
+        width: 24%;
+        margin:2px 2px 8px;
+    }
+    .article-info .headline{
+        font-size: 0.8srem !important;
+        margin-bottom: 4px;
+    }
+    /*****************************
+    *       article.ejs file     *
+    ***************************/
+    main.article-page div.image-wrapper{
+        margin-bottom: 150px !important;
+    }
+    main.article-page div.image-wrapper img{
+        height: 310px !important;
+    }
+    div.article-body-wrapper h2{
+        padding: 0 345px !important;
+    }
+    div.article-body-wrapper section.author-and-date{
+        padding: 16px 345px !important;
+    }
+    div.article-body-wrapper section.blog{
+        padding: 0 345px !important;
+    }
+    section.views-and-likes{
+        padding: 20px 345px !important;
+    }
+
+
+    /* PROFILE PAGE */
+    main.profilePage--main-wrapper .div-2 h2{
+        margin-left: 40% !important;
+    }
+    main.profilePage--main-wrapper .div-2 section h2,
+    main.profilePage--main-wrapper .div-2 section h3,
+    main.profilePage--main-wrapper .div-2 section p,
+    main.profilePage--main-wrapper .div-2 section a{
+        margin: 0 40% !important;
+    }
+    main.profilePage--main-wrapper .div-2 section a{
+        margin: 30px auto 150px !important;
+    }
+
+
+
+    /* USERS PAGE */
+    /* div.userPage-card{
+        width: 200px;
+        height: 150px;
+        margin: 0 0 24px 8px;
+    }
+    .fa-eye, .fa-thumbs-up{
+        display: unset !important;
+    }
+    div.user-div4,
+    div.user-div5 button,
+    div.user-div5 button i,
+    div.user-div5 button i span span{
+        font-size: 12px !important;
+    }
+    div.user-div5{
+        display: unset;
+        width: 200px !important;
+    }
+    div.user-div5 button{
+        width: 100% !important;
+        font: 4px !important;
+    } */
+}

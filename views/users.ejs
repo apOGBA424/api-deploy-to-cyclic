@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <div class="logo-and-name-wrapper">
+                <div class="logo-div"></div>
+                <h1>API Deploy to Cyclic</h1>
+            </div>
+        </a>
+        <button class="nav-icon">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="nav-links--wrapper">
+            <button class="close-button">&times;</button>
+            <ul>
+                <a href="#"><li>link1</li></a>
+                <a href="#"><li>link2</li></a>
+                <a href="#"><li>link3</li></a>
+                <a href="#"><li>link4</li></a>
+                <a href="#"><li>link5</li></a>
+            </ul>
+        </div>
+    </nav>
+    <header class="slider"></header>
+    <main id="userPage--main">
+        <section class="userPage__content">
+            <% for( let index = 0; index < local_data[0]['users'].length; index++ ) { %>
+                 
+                <div class="userPage-card">
+                    <!-- the user image -->
+                    <a href="/profile/<%= local_data[0]['users'][index]['id'] %>">
+                        <div class="users-image-wrapper">
+                            <img loading="lazy" src=<%= local_data[0]['users'][index]['image'] %> alt="article-image">
+                        </div>
+                    </a>
+                        <!-- user info section -->
+                        <section class="userPage-info">
+                            <a href="/profile/<%= local_data[0]['users'][index]['id'] %>">
+                                <!-- the user name only -->
+                                <h2 class="userPage-h2"><%- local_data[0]['users'][index]['name'] %> <span><i class="fa fa-external-link"></i></span></h2>
+                             </a>
+                            <!-- user views and likes -->
+                            <div class="userPage-div3">
+                                <!-- user image views -->
+                                <div class="user-div4">
+                                    <i class="fa fa-eye"></i>
+                                    <span>
+                                        <span class="views-letter-only">Views</span>
+                                        <%= local_data[0]['users'][index]['views'] %> 10000
+                                    </span>
+                                </div>
+                                <!-- user image likes -->
+                                <div class="user-div5">
+                                    <button>
+                                        <i class="fa fa-thumbs-up"> </i>
+                                        <!-- likes-letter and count -->
+                                        <span>
+                                            <span class="likes-letter-only">Likes</span>
+                                            5559996
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+            <% } %>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="/js/app.js"></script>
+</body>
+</html>

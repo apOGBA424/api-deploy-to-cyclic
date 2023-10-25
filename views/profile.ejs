@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <div class="logo-and-name-wrapper">
+                <div class="logo-div"></div>
+                <h1>API Deploy to Cyclic</h1>
+            </div>
+        </a>
+        <button class="nav-icon">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="nav-links--wrapper">
+            <button class="close-button">&times;</button>
+            <ul>
+                <a href="#"><li>link1</li></a>
+                <a href="#"><li>link2</li></a>
+                <a href="#"><li>link3</li></a>
+                <a href="#"><li>link4</li></a>
+                <a href="#"><li>link5</li></a>
+            </ul>
+        </div>
+    </nav>
+    <header class="slider"></header>
+    <!-- go back arrow -->
+    <section class="backArrow">
+        <a href="/users" class="page-arrow">
+            <h4>&larr; Previous Page</h4>
+        </a>
+    </section>
+    <main class="profilePage--main-wrapper">
+        <div class="div-1">
+            <img loading="lazy" src="<%= local_data[0]['users'][Number(id - 1)]['image'] %>" alt="artice-image">
+        </div>
+        <div class="div-2">
+            <!-- user name section -->
+            <section class="headline">
+                <h2><%= local_data[0]['users'][Number(id - 1)]['name'] %></h2>
+            </section>
+
+            <!-- user ID section -->
+            <section class="profilePage--userID">
+                <h3><span class="profilePage-span">Account ID: </span><%= local_data[0]['users'][Number(id - 1)]['id'] %></h3>
+            </section>
+            <!-- user other data section -->
+            <section class="blog profilePage--userData">
+                <p><span class="profilePage-span gender">Gender:</span><span style="text-transform: capitalize; font-weight: 400; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><%= local_data[0]['users'][Number(id - 1)]['gender'] %></span></p>
+                <p><span class="span--1">Email:</span><span><%= local_data[0]['users'][Number(id - 1)]['email'] %></span></p>
+                <p><span class="profilePage-span">Country:</span><%= local_data[0]['users'][Number(id - 1)]['country'] %></p>
+                <p><span class="profilePage-span">Phone:</span><%= local_data[0]['users'][Number(id - 1)]['phone'] %></p>
+            </section>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <div class="logo-and-name-wrapper">
+                <div class="logo-div"></div>
+                <h1>API Deploy to Cyclic</h1>
+            </div>
+        </a>
+    </nav>
+    <header class="slider"></header>
+    <main id="home-page">
+        <section id="article">
+
+            <% for( let index = 0; index < local_data[1]['posts'].length; index++ ) { %>
+                <a href="/articles.ejs">
+                    <div class="article-card">
+                        <div class="article-image-wrapper">
+                            <img loading="lazy" src=<%= local_data[1]['posts'][index]['image'] %> alt="article-image">
+                        </div>
+                        <section class="article-info">
+                            <h2 class="headline"><%- local_data[1]['posts'][index]['headline'] %></h2>
+                            <% if (local_data[1]['posts'][index]['author_id'] !== local_data[1]['posts'][index]['author_id']) { %>
+                               <!-- H3 for authour name -->
+                                <h3 class="author"><%= local_data[1]['posts'][index]['author_id'] %></h3>
+                            <% } %>
+                            <div class="views-likes-date">
+                                <div class="views">
+                                    <i class="fa fa-eye"> Views</i>
+                                    <p><%= local_data[1]['posts'][index]['views'] %></p>
+                                </div>
+                                <div class="likes">
+                                    <a href="#"><i class="fa fa-thumbs-up"> <span>Likes</span></i></a>
+                                    <p><%= local_data[1]['posts'][index]['likes'] %></p>
+                                </div>
+                                <div class="date">
+                                    <!-- <p>Post</p> -->
+                                    <p><%- local_data[1]['posts'][index]['published'] %></p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </a>
+            <% } %>
+
+        </section>
+    </main>
+    <footer></footer>
+    <script src="/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Article</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <nav>
+            <a href="/">
+                <div class="logo-and-name-wrapper">
+                    <div class="logo-div"></div>
+                    <h1>API Deploy to Cyclic</h1>
+                </div>
+            </a>
+            <button class="nav-icon">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="nav-links--wrapper">
+                <button class="close-button">&times;</button>
+                <ul>
+                    <a href="#"><li>link1</li></a>
+                    <a href="#"><li>link2</li></a>
+                    <a href="#"><li>link3</li></a>
+                    <a href="#"><li>link4</li></a>
+                    <a href="#"><li>link5</li></a>
+                </ul>
+            </div>
+        </nav>
+        <header class="slider"></header>
+        <main class="article-page">
+            <div class="image-wrapper">
+                <img loading="lazy" src="<%= local_data[1]['posts'][0]['image'] %>" alt="artice-image">
+            </div>
+            <div class="article-body-wrapper">
+                <!-- headine section -->
+                <section class="headline">
+                    <h2><%- local_data[1]['posts'][0]['headline'] %></h2>
+                </section>
+
+                <!-- author and date section -->
+                <section class="author-and-date">
+                    <h3>Lilly Peterson</h3>
+                    <h3><%= local_data[1]['posts'][0]['published'] %></h3>
+                </section>
+                <!-- the blog section -->
+                <section class="blog">
+                    <p><%- local_data[1]['posts'][0]['body'] %></p>
+                </section>
+                <!-- views and likes -->
+                <section class="views-and-likes">
+                    <h4><i class="fa fa-eye"></i>Views <%= local_data[1]['posts'][0]['views'] %></h4>
+                    <h4><i class="fa fa-thumbs-up"></i>Likes <%= local_data[1]['posts'][0]['likes'] %></h4>
+                </section>
+            </div>
+
+
+            <div></div>
+            <div></div>
+        </main>
+        <footer></footer>
+        <script src="/js/app.js"></script>
+    </body>
+</html>

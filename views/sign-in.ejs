@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-In</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <a href="/">
+            <div class="logo-and-name-wrapper">
+                <div class="logo-div"></div>
+                <h1>API Deploy to Cyclic</h1>
+            </div>
+        </a>
+        <button class="nav-icon">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="nav-links--wrapper">
+            <button class="close-button">&times;</button>
+            <ul>
+                <a href="#"><li>link1</li></a>
+                <a href="#"><li>link2</li></a>
+                <a href="#"><li>link3</li></a>
+                <a href="#"><li>link4</li></a>
+                <a href="#"><li>link5</li></a>
+            </ul>
+        </div>
+    </nav>
+    <div class="authForm-wrapper">
+        <h1>API Deploy to Cyclic</h1>
+        <h2>Sign-In With</h2>
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-github"></i></a>
+            <a href="#"><i class="fa fa-google"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="form-header">
+            <h3>Or Fill the Form Below</h3>
+        </div>
+        <form action="/signin" method="POST" class="authForm">
+            <!-- <label for="username">Username</label>
+            <input type="text" placeholder="Enter your fullname" id="username" name="username" required> -->
+            <label for="username">Email</label>
+            <input type="email" placeholder="example@email.com" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="text" placeholder="createpassword" id="password" name="password" required>
+            <input type="submit" value="submit">
+        </form>
+        <div class="sign-in_redirect">
+            <p>Create a new account?</p><a href="/signup">Sign-Up here!</a>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+</html>

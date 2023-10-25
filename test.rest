@@ -1,0 +1,40 @@
+
+GET http://localhost:3000/
+###
+
+
+GET http://localhost:3000/signup
+###
+
+POST http://localhost:3000/signup
+Content-Type: application/json
+
+{
+    "username": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "secret"
+}
+###
+
+
+GET http://localhost:3000/signin
+###
+
+POST http://localhost:3000/signin
+Content-Type: application/json
+
+{
+    "email": "John Doe",
+    "password": "secret"
+}
+###
+
+
+GET http://localhost:3000/article
+###
+
+GET http://localhost:3000/users
+###
+
+GET http://localhost:3000/profile/1
+###

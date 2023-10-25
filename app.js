@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const app = express();
 const router = express.Router();
 const local_data = require('./mock_data');
+const database = require('./config/db')
 
 
 // app-level middlewares
@@ -21,6 +22,23 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 
 
+
+// app connection to Cloud Server
+if (database) {
+    app.listen(PORT, ()=>{
+        console.log(`app running on  http://localhost:${PORT}`);
+        console.log(`app running on  http://localhost:${PORT}/signup`);
+        console.log(`app running on  http://localhost:${PORT}/signin`);
+        console.log(`app running on  http://localhost:${PORT}/article`);
+        console.log(`app running on  http://localhost:${PORT}/users`);
+        console.log(`app running on  http://localhost:${PORT}/profile`);
+    });
+}else{
+    console.error("Error connecting to the database");
+}
+
+
+
 /***********************************************
  *              ALL THE APP ROUTES
 ***********************************************/
@@ -28,7 +46,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 app.get('/', (req, res)=>{
         // res.status(200).json(local_data[1])
         let x = local_data[1]['posts'][0]['author_id'];
-        console.log(`from from '/' route --->  users id  = ${x}`)
+        console.log(`from '/' route --->  users id  = ${x}`)
     return res.render('index', {local_data});
 });
 
@@ -46,7 +64,7 @@ app.post('/signup', (req, res)=>{
             console.table({username, email, password});
             return res.status(201).json({username, email, password});
         }
-        
+
     } catch (error) {
         console.log(error.message);
         res.status(400).json({error})
@@ -65,7 +83,7 @@ app.post('/signin', (req, res)=>{
 
         if (email && password) {
             console.table({email, password});
-            return res.status(201).json({email, password});
+            return res.status(200).json({email, password});
         }
 
     } catch (error) {
@@ -108,11 +126,11 @@ app.use((req, res)=> {
 });
 
 
-app.listen(PORT, ()=>{
-    console.log(`app running on  http://localhost:${PORT}`);
-    console.log(`app running on  http://localhost:${PORT}/signup`);
-    console.log(`app running on  http://localhost:${PORT}/signin`);
-    console.log(`app running on  http://localhost:${PORT}/article`);
-    console.log(`app running on  http://localhost:${PORT}/users`);
-    console.log(`app running on  http://localhost:${PORT}/profile`);
-});
+// app.listen(PORT, ()=>{
+//     console.log(`app running on  http://localhost:${PORT}`);
+//     console.log(`app running on  http://localhost:${PORT}/signup`);
+//     console.log(`app running on  http://localhost:${PORT}/signin`);
+//     console.log(`app running on  http://localhost:${PORT}/article`);
+//     console.log(`app running on  http://localhost:${PORT}/users`);
+//     console.log(`app running on  http://localhost:${PORT}/profile`);
+// });

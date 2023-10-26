@@ -57,17 +57,28 @@ app.get('/', (req, res)=>{
 app.get('/signup', (req, res)=>{
     res.render('sign-up');
 });
-app.post('/signup', (req, res)=>{
+app.post('/signup', async(req, res)=>{
     try {        
         const {username, email, password} = req.body;
+
+        // make username and email small aplhabets letters
+        username = username.toLowerCase();
+        email = email.toLowerCase();
         
         if (username && email && password) {
+            // hash user's password for security purpose
+            const hashedPassword = await bcrypt.hash(password, 10);
             
-            const new_user = User({username, email, password});
-            new_user.save();
+            const new_user = User({
+                username, 
+                email, 
+                password: hashedPassword
+            });
+
+            await new_user.save();
             
-            console.table({username, email, password});
-            return res.status(201).json({username, email, password});
+            console.table({username, email, password, hashedPassword});
+            return res.redirect('/signin')
         }
 
     } catch (error) {
@@ -82,13 +93,19 @@ app.get('/signin', (req, res)=>{
     res.render('sign-in');
 });
 
-app.post('/signin', (req, res)=>{
+app.post('/signin', async (req, res)=>{
     try {
         const {email, password} = req.body;
 
-        if (email && password) {
+        // identify user by email
+        const userEmail = await User.findOne({email});
+
+        // using bcrypt.compare( ) to decrypt the hashed password
+        if (userEmail && (await bcrypt.compare(password, userEmail.password))) {
             console.table({email, password});
-            return res.status(200).json({email, password});
+            return res.redirect('/');
+        }else{
+            return res.redirect('/signin')
         }
 
     } catch (error) {

@@ -61,9 +61,23 @@ button.nav-icon{
     font-size: larger;
     padding: 8px;
 }
+nav p{
+    /* outline: 4px dashed gold; */
+    color: var(--blue-3);
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-right: 2rem;
+}
+nav p span{
+    margin-left: 1px;
+    font-size: large;
+    font-weight: 500;
+}
 button.nav-icons .fa-bars{
     border-color: transparent;
 }
+/* the navigation menu */
 div.nav-links--wrapper{
     display: none;
     position: fixed;
@@ -105,6 +119,18 @@ div.nav-links--wrapper ul a li{
     font-size: 20px;
     color: white;
     cursor: pointer;
+}
+div.nav-links--wrapper ul li p{
+    text-align: center;
+    margin: 0 auto;
+    color: cyan;
+    margin-top: 2rem;
+    font-size: large;
+    font-family: monospace;
+    display: inline-block;
+    /* border-bottom: 1px solid cyan; */
+    letter-spacing: 1.8px;
+    pointer-events: none;
 }
 button.nav-icon:hover,
 button.nav-icon i:hover,

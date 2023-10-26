@@ -10,8 +10,8 @@ POST http://localhost:3000/signup
 Content-Type: application/json
 
 {
-    "username": "John Doe",
-    "email": "john.doe@example.com",
+    "username": "Donald J. Trump",
+    "email": "Donald.trump@gov.us",
     "password": "secret"
 }
 ###
@@ -24,7 +24,7 @@ POST http://localhost:3000/signin
 Content-Type: application/json
 
 {
-    "email": "John Doe",
+    "email": "Donald.trump@gov.us",
     "password": "secret"
 }
 ###

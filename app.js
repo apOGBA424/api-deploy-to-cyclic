@@ -2,25 +2,43 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const app = express();
 const router = express.Router();
 const local_data = require('./mock_data');
 const database = require('./config/db');
 const User = require('./model/users');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
+const flash = require('express-flash');
+const cookieParser = require('cookie-parser')
+const app = express();
 
 
 // app-level middlewares
 app.use(cors());
+app.use(cookieParser('cookieMessage'))
+app.use(session({
+    secret: process.env.SECRET || 'secret-k3y',
+    cookie: { maxAge: 60000 },
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 
+
 // variables
 const PORT= process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
+let notification_msg = [
+    'Registration successful. You can now log in.',
+    'Registration failed. Please try again.',
+    'Login successful.',
+    'Invalid email or password. Please try again.',
+];
 
 
 
@@ -46,10 +64,21 @@ if (database) {
 ***********************************************/
 // home page
 app.get('/', (req, res)=>{
-        // res.status(200).json(local_data[1])
-        let x = local_data[1]['posts'][0]['author_id'];
-        console.log(`from '/' route --->  users id  = ${x}`)
-    return res.render('index', {local_data});
+    
+    let signupSuccessMsg = notification_msg[2];
+    let signupErrorMsg = notification_msg[3];
+
+    let success = req.flash('success');
+    let error = req.flash('error');
+
+        
+    return res.render('index', {
+        // showAlert: true,
+        local_data, 
+        success, 
+        error,
+        signupSuccessMsg, signupErrorMsg
+    });
 });
 
 
@@ -57,11 +86,12 @@ app.get('/', (req, res)=>{
 app.get('/signup', (req, res)=>{
     res.render('sign-up');
 });
+
 app.post('/signup', async(req, res)=>{
     try {        
-        const {username, email, password} = req.body;
+        let {username, email, password} = req.body;
 
-        // make username and email small aplhabets letters
+        // convert username and email values to lowercase
         username = username.toLowerCase();
         email = email.toLowerCase();
         
@@ -75,10 +105,14 @@ app.post('/signup', async(req, res)=>{
                 password: hashedPassword
             });
 
-            await new_user.save();
-            
+            req.flash('success');
+            req.flash('error');
+
             console.table({username, email, password, hashedPassword});
-            return res.redirect('/signin')
+
+            await new_user.save();
+
+            return res.redirect('/signin');
         }
 
     } catch (error) {
@@ -90,7 +124,12 @@ app.post('/signup', async(req, res)=>{
 
 //signin page
 app.get('/signin', (req, res)=>{
-    res.render('sign-in');
+    let signinSuccessMsg = notification_msg[0];
+    let signinErrorMsg = notification_msg[1];
+    
+    let success = req.flash('success');
+    let error = req.flash('error');
+    res.render('sign-in', {success, error, signinSuccessMsg, signinErrorMsg});
 });
 
 app.post('/signin', async (req, res)=>{
@@ -100,11 +139,14 @@ app.post('/signin', async (req, res)=>{
         // identify user by email
         const userEmail = await User.findOne({email});
 
-        // using bcrypt.compare( ) to decrypt the hashed password
         if (userEmail && (await bcrypt.compare(password, userEmail.password))) {
             console.table({email, password});
+
+            req.flash('success');
+            
             return res.redirect('/');
         }else{
+            req.flash('error');
             return res.redirect('/signin')
         }
 

@@ -9,7 +9,7 @@
     --font-color: #494141;
     --warning-color: #FF2424;
     --info-color: #F5E04A;
-    --success-color: #59B734;
+    --success-color: cyan;
     --blue-1: #011f4b;
     --blue-2: #03396c;
     --blue-3: #005b96;
@@ -89,6 +89,13 @@ div.nav-links--wrapper{
     height: 100vh;
     background-color: var(--blue-3);
 }
+/*--------------------------------*/
+/*  USER'S NAME IN NAV BAR        */ 
+/*--------------------------------*/
+div.username-and-nav-menu p{
+    display: none;
+}
+
 /* the navigation menu button */
 div.nav-links--wrapper button{
     /* outline: 2px dotted red; */
@@ -141,6 +148,52 @@ div.nav-links--wrapper ul a i:hover{
     color: var(--info-color);
 }
 
+
+
+
+/*--------------------------------------------------------*/
+/*                      <main> tag                        */ 
+/*--------------------------------------------------------*/
+main{
+    position: relative;
+}
+
+
+
+/*--------------------------------------------------------*/
+/*                      Notification Box                  */ 
+/*--------------------------------------------------------*/
+div.notificationBox-wrapper{
+    /* outline: 2px solid crimson; */
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+
+    margin: 8px 5% 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 4px 5px 10px var(--font-color);
+    text-align: justify;
+}
+div.notificationBox-wrapper div p{
+    word-spacing: -2px;
+}
+div.notificationBox-wrapper div button{
+    font-size: xx-large;
+    background-color: transparent;
+    margin-left: 8px;
+    border: none;
+    outline: none;
+}
+div.notificationBox-wrapper div button:hover{
+    cursor: pointer;
+    color: var(--blue-3);
+}
 
 
 
@@ -612,6 +665,17 @@ main.Page404 div div a p:hover{
 
 /* for tablet */
 @media (min-width: 768px){
+
+    /* NAVIGATION BAR */
+    div.username-and-nav-menu p#username-and-greeting{
+        display: inline-block;
+    }
+
+    /* NOTIFICATION BAR */
+    div.notificationBox-wrapper{
+        margin: 8px 15% 0;
+    }
+
     .social-icons{
         width: 40% !important;
     }
@@ -689,17 +753,6 @@ main.Page404 div div a p:hover{
     }
 
 
-    /* USERS PAGE */
-    /* section.userPage__content {
-        display: flex;
-        flex-wrap: wrap;
-    }
-    div.userPage-card{
-        width: 33%;
-    }
-    .fa-eye, .fa-thumbs-up{
-        display: none !important;
-    } */
 
     main#userPage--main{
         /* background-color: red; */
@@ -721,6 +774,15 @@ main.Page404 div div a p:hover{
 
 
 @media (min-width: 992px) {
+
+    /* NOTIFICATION BAR */
+    div.notificationBox-wrapper{
+        margin: 8px 25% 0;
+    }
+    div.notificationBox-wrapper p{
+        word-spacing:2px !important;
+    }
+
     .authForm-wrapper form,
     .authForm-wrapper .sign-in_redirect{
         width: 40%;

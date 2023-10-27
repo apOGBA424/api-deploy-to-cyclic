@@ -15,20 +15,49 @@
                 <h1>API Deploy to Cyclic</h1>
             </div>
         </a>
-        <button class="nav-icon">
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="nav-links--wrapper">
-            <button class="close-button">&times;</button>
-            <ul>
-                <a href="#"><li>link1</li></a>
-                <a href="#"><li>link2</li></a>
-                <a href="#"><li>link3</li></a>
-                <a href="#"><li>link4</li></a>
-                <a href="#"><li>link5</li></a>
-            </ul>
+        <div class="username-and-nav-menu">
+            <p>
+                Welcome back!
+                <span>Larry Wong</span>
+            </p>
+            <button class="nav-icon">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="nav-links--wrapper">
+                <button class="close-button">&times;</button>
+                <ul>
+                    <a href="#"><li>link1</li></a>
+                    <a href="#"><li>link2</li></a>
+                    <a href="#"><li>link3</li></a>
+                    <a href="#"><li>link4</li></a>
+                    <li><p>pasgba424@gmail.com</p></li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+    <% if (success) { %>
+        <!-- notification box wrapper -->
+        <div class="notificationBox-wrapper"  style="background-color: var(--success-color);">
+            <div>
+                <p><%= signinSuccessMsg %></p>
+            </div>
+            <div>
+                <button class="close-notification">&times;</button>
+            </div>
+        </div>
+    <% }else{%>
+        <!-- notification box wrapper -->
+        <div class="notificationBox-wrapper"  style="background-color: var(--success-color);">
+            <div>
+                <p><%= signinErrorMsg %></p>
+            </div>
+            <div>
+                <button class="close-notification">&times;</button>
+            </div>
+        </div>
+    <% } %>
+
     <div class="authForm-wrapper">
         <h1>API Deploy to Cyclic</h1>
         <h2>Sign-In With</h2>
@@ -55,5 +84,6 @@
         </div>
     </div>
     <footer></footer>
+    <script src="../js/script.js"></script>
 </body>
 </html>

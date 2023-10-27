@@ -10,8 +10,8 @@ POST http://localhost:3000/signup
 Content-Type: application/json
 
 {
-    "username": "Donald J. Trump",
-    "email": "Donald.trump@gov.us",
+    "username": "test-4",
+    "email": "test-4@tube.com",
     "password": "secret"
 }
 ###

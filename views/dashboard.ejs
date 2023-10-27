@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
+    
     <!-- the new nav code that has the user's name -->
     <nav>
         <a href="/">
@@ -20,7 +21,7 @@
         <div class="username-and-nav-menu">
             <p id="username-and-greeting">
                 Welcome back!
-                <span class="onMobile--showUserInitail-only">Larry Wong</span>
+                <span id="userTitle">Larry Wong</span>
             </p>
             <button class="nav-icon">
                 <i class="fa fa-bars"></i>
@@ -42,27 +43,19 @@
     <header class="slider"></header>
     <main id="home-page">
 
-        <% if (success) { %>
-            <!-- notification box wrapper -->
-            <div class="notificationBox-wrapper"  style="background-color: var(--success-color);">
-                <div>
-                    <p><%= signupSuccessMsg %></p>
-                </div>
-                <div>
-                    <button class="close-notification">&times;</button>
-                </div>
+        <!-- notification box wrapper -->
+        <div class="notificationBox-wrapper"  style="background-color: var(--success-color);">
+            <div>
+                <p><%= notification_msg[2]['signin_success'] %></p>
             </div>
-        <% }else{%>
-            <!-- notification box wrapper -->
-            <div class="notificationBox-wrapper"  style="background-color: var(--warning-color);">
-                <div>
-                    <p><%= signupErrorMsg %></p>
-                </div>
-                <div>
-                    <button class="close-notification">&times;</button>
-                </div>
+            <div>
+                <button class="close-notification">&times;</button>
             </div>
-        <% } %>
+        </div>
+
+        <!-- SOME DASHBOARD FEATURES HERE -->
+        <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident earum perspiciatis et tempore vero fugiat deleniti voluptatem? Assumenda, ex ad! Enim consequuntur accusamus commodi. Ab placeat maiores nostrum quibusdam in!</h1>
+        <!-- END OF SOME DASHBOARD FEATURES -->
 
         <section id="article">
 
